@@ -76,7 +76,7 @@ class BL
         }
 
         if(filter_var($raw_value, FILTER_VALIDATE_BOOLEAN)) {
-            return boolval($raw_value);
+            return boolval($raw_value) ? 1 : 0;
         }
 
         return is_array($raw_value) || is_object($raw_value) ? json_encode($raw_value) : htmlspecialchars(stripslashes($raw_value));
