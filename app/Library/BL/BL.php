@@ -75,7 +75,11 @@ class BL
             }
         }
 
-        return is_array($raw_value) || is_object($raw_value) ? htmlspecialchars(stripslashes(json_encode($raw_value))) : htmlspecialchars(stripslashes($raw_value));
+        if(filter_var($raw_value, FILTER_VALIDATE_BOOLEAN)) {
+            return boolval($raw_value);
+        }
+
+        return is_array($raw_value) || is_object($raw_value) ? json_encode($raw_value) : htmlspecialchars(stripslashes($raw_value));
     }
 
     public function upsertModelData($vendor_id = null)
@@ -175,6 +179,8 @@ class BL
                         $sql = "INSERT INTO `model_data` (" . implode(',', $columns) . ") VALUES " . implode(',', $values);
 
                         $result = \DB::statement($sql, $values);
+
+                        \var_dump($values);
 
                         if(!$result) {
                             return ['success' => false, 'message' => "Model Data Insert Error"];
