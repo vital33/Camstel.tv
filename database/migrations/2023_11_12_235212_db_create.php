@@ -36,7 +36,7 @@ class DbCreate extends Migration
         }
 
         if(!Schema::hasTable('model_data')) {
-            Schema::table('model_data', function (Blueprint $table) {
+            Schema::create('model_data', function (Blueprint $table) {
                 $table->id();
                 $table->integer('model_id');
                 $table->string('type');
