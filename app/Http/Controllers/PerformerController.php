@@ -18,7 +18,7 @@ class PerformerController extends Controller
             'category' => 'nullable|array',
             'category.*' => 'numeric',
             'types' => 'nullable|array',
-            'types.*.types' => 'in:' . implode(',', \App\Models\PerformerData::$types),
+            'types.*.type' => 'in:' . implode(',', \App\Models\PerformerData::$types),
             'types.*.value' => 'max:255|numeric',
         ]);
 

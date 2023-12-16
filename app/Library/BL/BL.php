@@ -25,8 +25,8 @@ use Exception;
 class BL
 {
     private $params = [
-      "from" => 0,
-      "size" => 10000,
+        "from" => 0,
+        "size" => 10000,
     ];
 
     private $offset = 0;
@@ -44,7 +44,7 @@ class BL
     {
         $this->params = array_merge($this->params, $params);
         $this->instance = new AuthSdk(self::APP_ID, self::TOKEN);
-
+        ini_set('memory_limit', '256M');
     }
 
     private function getListData()
@@ -67,15 +67,15 @@ class BL
             ],
         ];
 
-        if(isset($map[$key])) {
-            if($value = current(array_filter($map[$key], function ($i) use ($raw_value) {
+        if (isset($map[$key])) {
+            if ($value = current(array_filter($map[$key], function ($i) use ($raw_value) {
                 return in_array($raw_value, $i['alias']);
             }))) {
                 return $value['value'];
             }
         }
 
-        if(filter_var($raw_value, FILTER_VALIDATE_BOOLEAN)) {
+        if (filter_var($raw_value, FILTER_VALIDATE_BOOLEAN)) {
             return boolval($raw_value) ? 1 : 0;
         }
 
@@ -93,7 +93,7 @@ class BL
             $model_data = [];
             $all_categories = [];
 
-            if(isset($list['status']) && $list['status'] == self::SM_OK) {
+            if (isset($list['status']) && $list['status'] == self::SM_OK) {
                 try {
 
                     $values = [];
@@ -102,26 +102,36 @@ class BL
 
                     $keys = !empty($list['Results'][0]) ? array_keys($list['Results'][0]) : [];
 
-                    foreach($list['Results'] as $r) {
+                    foreach ($list['Results'] as $r) {
 
                         $values = array_merge(
                             $values,
                             [
-                              $r['Nickname'], $r['PerformerId'], "$now", "$now", $vendor_id
+                                $r['Nickname'], $r['PerformerId'], "$now", "$now", $vendor_id
                             ]
                         );
 
                         $model_categories[] = [
-                          'nick' => $r['Nickname'],
-                          'categories' => $r['Categories'] // [2,4,5]
+                            'nick' => $r['Nickname'],
+                            'categories' => $r['Categories'] // [2,4,5]
                         ];
-
+                        // var_dump($keys);
                         $model_data[$r['Nickname']] = array_reduce($keys, function ($acc, $k) use ($r) {
-                            if(!in_array($k, ['Nickname', 'PerformerId','CategoryName', 'Categories'])) {
+                            if (!in_array($k, ['Nickname', 'PerformerId', 'CategoryName', 'Categories', "Languages"])) {
                                 $acc[$k] = $this->mapValue($k, $r[$k]);
                             }
                             return $acc;
                         });
+
+                        foreach (["Languages"] as $k) {
+                            if (in_array($k, $keys)) {
+                                if (is_array($r[$k])) {
+                                    foreach ($r[$k] as $v) {
+                                        $model_data[$r['Nickname']][] = [$k => $v];
+                                    }
+                                }
+                            }
+                        }
 
                         $all_categories = array_merge($all_categories, array_combine($r['CategoryName'], $r['Categories'])); // ['1' => "cat_name"]
 
@@ -129,18 +139,18 @@ class BL
 
                     $stored_models = null;
 
-                    if(count($list['Results'])) {
+                    if (count($list['Results'])) {
 
                         $rowPlaces = '(' . implode(', ', array_fill(0, count($columns), '?')) . ')';
                         $placeholder = implode(', ', array_fill(0, count($list['Results']), $rowPlaces));
 
                         $start = microtime(1);
 
-                        $sql = "INSERT INTO `model` (" . implode(',', $columns) . ") VALUES $placeholder ON DUPLICATE KEY UPDATE `updated_at`='$now'";
-
+                        $sql = "INSERT INTO `model` (" . implode(',', $columns) . ") VALUES $placeholder ON DUPLICATE KEY UPDATE `updated_at`=\"$now\"";
+                        // var_dump($values);
                         $result = \DB::statement($sql, $values);
 
-                        if(!$result) {
+                        if (!$result) {
                             return ['success' => false, 'message' => "Insert Error"];
                         }
 
@@ -150,61 +160,70 @@ class BL
 
                         $stored_models = $this->getModels(array_keys($model_data));
 
+
                         $values = [];
+                        $columns = ['model_id', 'type', 'value'];
+                        $rowPlaces = '(' . implode(', ', array_fill(0, count($columns), '?')) . ')';
 
                         try {
 
                             $model_nicks = array_column($stored_models, 'nick');
 
-                            foreach($model_data as $mc => $value) {
+                            foreach ($model_data as $mc => $value) {
 
                                 $idx = array_search($mc, $model_nicks);
 
-                                if($idx !== false) {
+                                if ($idx !== false) {
 
-                                    foreach($value as $key => $val) {
-                                        $values[] = '("' . $stored_models[$idx]['id'] . '", "' . $key . '", "' . $val . '")';
+                                    foreach ($value as $key => $val) {
+                                        if (is_array($val)) {
+                                            foreach ($val as $k => $v) {
+                                                $a =  sprintf("(%d, \"%s\", \"%s\")", $stored_models[$idx]['id'], $k, $v);
+                                                $values[] = $a;
+                                            }
+                                        } else {
+                                            $a =  sprintf("(%d, \"%s\", \"%s\")", $stored_models[$idx]['id'], $key, $val);
+                                            $values[] = $a;
+                                        }
+
                                     }
                                 }
                             }
-
-                        } catch(Exception $e) {
+                        } catch (Exception $e) {
                             die($e->getMessage());
                         }
 
-                        $columns = ['model_id','type','value'];
-                        $rowPlaces = '(' . implode(', ', array_fill(0, count($columns), '?')) . ')';
+
                         $placeholder = implode(', ', array_fill(0, count($values), $rowPlaces));
 
                         $sql = "INSERT INTO `model_data` (" . implode(',', $columns) . ") VALUES " . implode(',', $values);
 
-                        $result = \DB::statement($sql, $values);
 
-                        \var_dump($values);
 
-                        if(!$result) {
+                        $result = \DB::statement($sql);
+
+
+
+                        if (!$result) {
                             return ['success' => false, 'message' => "Model Data Insert Error"];
                         }
-
                     }
 
                     unset($values);
                     $this->upsertCategories($all_categories);
                     try {
                         $this->syncCategories($model_categories, $stored_models);
-                    } catch(Exception $e) {
-
+                    } catch (Exception $e) {
                     }
 
                     return true;
-
-                } catch(\PDOException $e) {
+                } catch (\PDOException $e) {
                     var_dump($e->getCode());
                 }
             }
 
             return (array)$list;
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $e->getMessage();
         }
     }
@@ -222,12 +241,12 @@ class BL
 
         $values = [];
 
-        foreach($all_categories as $cat_name => $ext_id) {
+        foreach ($all_categories as $cat_name => $ext_id) {
 
             $values = array_merge(
                 $values,
                 [
-                  $ext_id, $cat_name
+                    "$ext_id", "$cat_name"
                 ]
             );
         }
@@ -236,12 +255,11 @@ class BL
 
         $result = \DB::statement($sql, $values);
 
-        if(!$result) {
+        if (empty($result)) {
             return ['success' => false, 'message' => "Category Upsert Error"];
         } else {
             return true;
         }
-
     }
 
     private function syncCategories($model_categories, $stored_models)
@@ -258,35 +276,33 @@ class BL
             $external_ids = array_column($existing_categories, 'external_id');
             $model_nicks = array_column($models, 'nick');
 
-            foreach($model_categories as $mc) {
+            foreach ($model_categories as $mc) {
 
                 $idx = array_search($mc['nick'], $model_nicks);
 
-                foreach($mc['categories'] as $ext_id) {
-                    if(($cat_idx = array_search($ext_id, $external_ids)) !== false) {
+                foreach ($mc['categories'] as $ext_id) {
+                    if (($cat_idx = array_search($ext_id, $external_ids)) !== false) {
                         $values[] = '("' . $models[$idx]['id'] . '", "' . $existing_categories[$cat_idx]['id'] . '")';
                     }
                 }
             }
-
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             die($e->getMessage());
         }
 
         $sql = "INSERT IGNORE INTO `model_to_category` (" . implode(',', $columns) . ") VALUES " . implode(',', $values) . "";
         $result = \DB::statement($sql);
 
-        if(!$result) {
+        if (!$result) {
             return ['success' => false, 'message' => "Model To Category Insert Error"];
         } else {
             return true;
         }
-
     }
 
     private function getModels($nicknames = [])
     {
-        if(!empty($nicknames)) {
+        if (!empty($nicknames)) {
             return \App\Models\Performer::whereIn('nick', $nicknames)->get()->toArray();
         } else {
             return \App\Models\Performer::get()->toArray();
@@ -297,5 +313,4 @@ class BL
     {
         return \App\Models\Category::all()->toArray();
     }
-
 }
