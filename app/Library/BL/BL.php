@@ -46,7 +46,7 @@ class BL
         $this->instance = new AuthSdk(self::APP_ID, self::TOKEN);
         ini_set('memory_limit', '256M');
     }
-
+//private
     private function getListData()
     {
         return $this->instance->post(self::LIST_URL, $this->params);
