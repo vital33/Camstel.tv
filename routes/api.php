@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::group(['prefix' => 'performer'], function () {
     Route::get('', "PerformerController@index");
+    Route::get('{nick}', "PerformerController@lookupByName");
 });
 // $router->group(['prefix' => 'performer'], function () use ($router) {
 //     $router->get('', "PerformerController@index");

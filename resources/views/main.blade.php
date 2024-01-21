@@ -8,9 +8,10 @@
   <title>Camstel.tv is coming soon</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <base href="/">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -32,14 +33,13 @@
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
       <i class="bi bi-list toggle-sidebar-btn"></i>
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="i/logo.png" alt="Camstel.com">
+        <img src="{{ asset('i/logo.png') }}" alt="Camstel.com">
       </a>
 
     </div><!-- End Logo -->
@@ -60,7 +60,7 @@
           </a>
         </li><!-- End Search Icon-->
 
-        
+
       </ul>
     </nav><!-- End Icons Navigation -->
 
@@ -311,6 +311,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Dashboard</li>
+          <li class="breadcrumb-item">{{$category_name}}</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -420,9 +421,6 @@
                     <div class="ps-3">
                       <h6>1245</h6>
                       <div>
-
-                      {{$category_name}}
-
                       @include("test", ['name' => "Vitali"])
                       </div>
                       <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
@@ -962,7 +960,7 @@
     <div class="copyright">
       &copy; Copyright <strong><span>Camstel.tv</span></strong>. All Rights Reserved
     </div>
-    
+
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

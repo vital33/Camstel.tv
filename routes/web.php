@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/cat/{category_name}', function () {
-    return view('main', ['category_name']);
-});
+Route::get('/cat/{category_name}', "PerformerController@test");

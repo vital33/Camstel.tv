@@ -98,16 +98,16 @@ class BL
 
                     $values = [];
 
-                    $columns = ["nick", "external_id", "created_at", "updated_at", "vendor_id"];
+                    $columns = ["nick", "external_id", "created_at", "updated_at", "vendor_id", "external_sort_order"];
 
                     $keys = !empty($list['Results'][0]) ? array_keys($list['Results'][0]) : [];
 
-                    foreach ($list['Results'] as $r) {
+                    foreach ($list['Results'] as $index => $r) {
 
                         $values = array_merge(
                             $values,
                             [
-                                $r['Nickname'], $r['PerformerId'], "$now", "$now", $vendor_id
+                                $r['Nickname'], $r['PerformerId'], "$now", "$now", $vendor_id, $index
                             ]
                         );
 
@@ -147,7 +147,7 @@ class BL
                         $start = microtime(1);
 
                         $sql = "INSERT INTO `model` (" . implode(',', $columns) . ") VALUES $placeholder ON DUPLICATE KEY UPDATE `updated_at`=\"$now\"";
-                        // var_dump($values);
+
                         $result = \DB::statement($sql, $values);
 
                         if (!$result) {
@@ -160,6 +160,11 @@ class BL
 
                         $stored_models = $this->getModels(array_keys($model_data));
 
+                        if(count($stored_models)) {
+                            \DB::table('model')
+                                ->whereNotIn('nick', array_keys($model_data))
+                                ->update(['external_sort_order' => null]);
+                        }
 
                         $values = [];
                         $columns = ['model_id', 'type', 'value'];
@@ -193,16 +198,11 @@ class BL
                             die($e->getMessage());
                         }
 
-
                         $placeholder = implode(', ', array_fill(0, count($values), $rowPlaces));
 
                         $sql = "INSERT INTO `model_data` (" . implode(',', $columns) . ") VALUES " . implode(',', $values);
 
-
-
                         $result = \DB::statement($sql);
-
-
 
                         if (!$result) {
                             return ['success' => false, 'message' => "Model Data Insert Error"];
