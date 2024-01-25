@@ -1,0 +1,24 @@
+$ttl 3600
+@	IN	SOA	vps.com. root.vps.com. (
+			2024011122
+			3600
+			600
+			1209600
+			3600 )
+@	IN	NS	vps.com.
+camstel.tv.	IN	A	217.196.48.218
+www.camstel.tv.	IN	A	217.196.48.218
+ftp.camstel.tv.	IN	A	217.196.48.218
+localhost.camstel.tv.	IN	A	127.0.0.1
+webmail.camstel.tv.	IN	A	217.196.48.218
+admin.camstel.tv.	IN	A	217.196.48.218
+mail.camstel.tv.	IN	A	217.196.48.218
+camstel.tv.	IN	MX	5 mail.camstel.tv.
+camstel.tv.	IN	TXT	"v=spf1 a mx a:camstel.tv ip4:217.196.48.218 ip4:217.196.48.218 ip6:2a02:4780:10:3a4a::1 ?all"
+camstel.tv.	IN	AAAA	2a02:4780:10:3a4a::1
+www.camstel.tv.	IN	AAAA	2a02:4780:10:3a4a::1
+ftp.camstel.tv.	IN	AAAA	2a02:4780:10:3a4a::1
+webmail.camstel.tv.	IN	AAAA	2a02:4780:10:3a4a::1
+admin.camstel.tv.	IN	AAAA	2a02:4780:10:3a4a::1
+mail.camstel.tv.	IN	AAAA	2a02:4780:10:3a4a::1
+_dmarc.camstel.tv.	IN	TXT	"v=DMARC1; p=none; pct=100; ruf=mailto:postmaster@camstel.tv; rua=mailto:postmaster@camstel.tv"
