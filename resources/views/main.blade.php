@@ -419,9 +419,9 @@
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1245</h6>
+                      <h6>124</h6>
                       <div>
-                      @include("test", ['name' => "Vitali"])
+                      @include("test", ['name' => "amy"])
                       </div>
                       <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
 
