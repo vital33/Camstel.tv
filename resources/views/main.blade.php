@@ -51,9 +51,10 @@
       </form>
     </div><!-- End Search Bar -->
 
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-        <li class="mav-item"><a href="#" class="nav-link nav-icon"><button type="button" class="btn btn-warning btn-sm">Register</button></a></li>
+    <nav class="header-nav">
+    <ul class="d-flex align-items-center">
+    <li class="mav-item"><a href="#" class="nav-link nav-icon"><button type="button" class="btn btn-warning">Join Free</button></a></li>
+ <li class="mav-item"><a href="#" class="nav-link nav-icon"><button type="button" class="btn btn-outline-secondary">Login</button></a></li>
         <li class="nav-item d-block d-lg-none">
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
@@ -71,234 +72,509 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link" data-bs-target="#" data-bs-toggle="collapse" href="index.html" aria-expanded="true">
+    <li class="nav-item bgr">
+        <a class="nav-link" href="/">
           <i class="bi bi-house"></i>
           <span>All Cams</span>
         </a>
-      </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+      </li>
+      <li class="nav-item bgr">
+        <a class="nav-link collapsed" href="/">
+          <i class="bi bi-gender-female"></i>
+          <span>Girls</span>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tabs.html">
-              <i class="bi bi-circle"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-pagination.html">
-              <i class="bi bi-circle"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+      </li>
+      <li class="nav-item bgr">
+        <a class="nav-link collapsed" href="/">
+          <i class="bi bi-gender-male"></i>
+          <span>Boys</span>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+      </li>
+      <li class="nav-item bgr">
+        <a class="nav-link collapsed" href="/">
+          <i class="bi bi-gender-ambiguous"></i>
+          <span>Couples</span>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+      </li>
+      <li class="nav-item bgr">
+        <a class="nav-link collapsed" href="/">
+          <i class="bi bi-gender-trans"></i>
+          <span>Trans</span>
         </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
+      </li>
+      <hr>
+      
+      
+      
+      <!-- End Gender Nav -->
+
+      <li class="nav-heading">
+        <i class="bi bi-globe"></i>
+        <span>Region:</span>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>USA/Canada</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>South America</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Europe</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Asia</span>
+        </a>
+      </li>
+      <hr>
+
+
+
+      <!-- End Region Nav -->
+
+
+      <li class="nav-heading">
+      <i class="bi bi-person-circle"></i>
+      <span>Race:</span>
+    </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>White</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Black</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Latino</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Asian</span>
+        </a>
+      </li>
+      <hr>
+
+
+
+
+      <!-- End Race Nav -->
+
+
+
+      <li class="nav-heading">
+      <i class="bi bi-sort-down-alt"></i>
+      <span>Age:</span>
+    </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>18-25</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>25-40</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>40+</span>
+        </a>
+      </li>
+      <hr>
+
+
+
+
+      <!-- End Age Nav -->
+
+      <li class="nav-heading">
+      <i class="bi bi-bar-chart-line-fill"></i>
+      <span>Top Categories:</span>
+    </li>
+    <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Big Boobs</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Squirt</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Lovense</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Anal</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Teen</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Big Ass</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Latina</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Natural</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Asian</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Shy</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Feet</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>MILF</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Small tits</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Skinny</span>
+        </a>
+      </li>
+      <li class="nav-item lft">
+        <a class="nav-link collapsed" href="/">
+          <span>Pornstar</span>
+        </a>
+      </li>
+      <!-- End Top Categories Nav -->
+
+
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed text-uppercase" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>All Categories</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+        <li>
+  <div class="d-flex justify-content-center text-uppercase fw-bold">--- Girl ---</div>
+          </li>
+        <li>
+            <a href="/cat/anal">
+              <i class="bi bi-circle"></i><span>Anal</span>
             </a>
           </li>
           <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Remix Icons</span>
+            <a href="/cat/asian">
+              <i class="bi bi-circle"></i><span>Asian</span>
             </a>
           </li>
           <li>
-            <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>Boxicons</span>
+            <a href="/cat/babes">
+              <i class="bi bi-circle"></i><span>Babes</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/bbw">
+              <i class="bi bi-circle"></i><span>Bbw</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/bigtits">
+              <i class="bi bi-circle"></i><span>Bigtits</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/blonde">
+              <i class="bi bi-circle"></i><span>Blonde</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/bondage">
+              <i class="bi bi-circle"></i><span>Bondage</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/brunette">
+              <i class="bi bi-circle"></i><span>Brunette</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/couples">
+              <i class="bi bi-circle"></i><span>Couples</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/curvy">
+              <i class="bi bi-circle"></i><span>Curvy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/ebony">
+              <i class="bi bi-circle"></i><span>Ebony</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/feet">
+              <i class="bi bi-circle"></i><span>Feet</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/girlfriends">
+              <i class="bi bi-circle"></i><span>Girlfriends</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/granny">
+              <i class="bi bi-circle"></i><span>Granny</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/groupsex">
+              <i class="bi bi-circle"></i><span>Groupsex</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/hairy">
+              <i class="bi bi-circle"></i><span>Hairy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/housewives">
+              <i class="bi bi-circle"></i><span>Housewives</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/hugetits">
+              <i class="bi bi-circle"></i><span>Hugetits</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/latina">
+              <i class="bi bi-circle"></i><span>Latina</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/leather">
+              <i class="bi bi-circle"></i><span>Leather</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/lesbian">
+              <i class="bi bi-circle"></i><span>Lesbian</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/mature">
+              <i class="bi bi-circle"></i><span>Mature</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/mediumtits">
+              <i class="bi bi-circle"></i><span>Mediumtits</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/muscule">
+              <i class="bi bi-circle"></i><span>Muscule</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/petite">
+              <i class="bi bi-circle"></i><span>Petite</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/pornstar">
+              <i class="bi bi-circle"></i><span>Pornstar</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/pregnant">
+              <i class="bi bi-circle"></i><span>Pregnant</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/redhead">
+              <i class="bi bi-circle"></i><span>Redhead</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/shaved">
+              <i class="bi bi-circle"></i><span>Shaved</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/smalltits">
+              <i class="bi bi-circle"></i><span>Smalltits</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/smokingcigars">
+              <i class="bi bi-circle"></i><span>Smokingcigars</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/teen">
+              <i class="bi bi-circle"></i><span>Teen</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/toys">
+              <i class="bi bi-circle"></i><span>Toys</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/transgirl">
+              <i class="bi bi-circle"></i><span>Transgirl</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/trimmed">
+              <i class="bi bi-circle"></i><span>Trimmed</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/white">
+              <i class="bi bi-circle"></i><span>White</span>
+            </a>
+          </li>
+          <li>
+            <hr>
+  <div class="d-flex justify-content-center text-uppercase fw-bold">--- Boy ---</div>
+          </li>
+          <li>
+            <a href="/cat/allguys">
+              <i class="bi bi-circle"></i><span>Allguys</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/alternadudes">
+              <i class="bi bi-circle"></i><span>Alternadudes</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/analguy">
+              <i class="bi bi-circle"></i><span>Analguy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/asianguy">
+              <i class="bi bi-circle"></i><span>Asianguy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/athleticguy">
+              <i class="bi bi-circle"></i><span>Athleticguy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/bdsm">
+              <i class="bi bi-circle"></i><span>Bdsm</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/bear">
+              <i class="bi bi-circle"></i><span>Bear</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/bi">
+              <i class="bi bi-circle"></i><span>Bi</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/bigcock">
+              <i class="bi bi-circle"></i><span>Bigcock</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/blackguy">
+              <i class="bi bi-circle"></i><span>Blackguy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/couplesguy">
+              <i class="bi bi-circle"></i><span>Couplesguy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/daddy">
+              <i class="bi bi-circle"></i><span>Daddy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/gay">
+              <i class="bi bi-circle"></i><span>Gay</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/guyfriends">
+              <i class="bi bi-circle"></i><span>Guyfriends</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/guynextdoor">
+              <i class="bi bi-circle"></i><span>Guynextdoor</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/latino">
+              <i class="bi bi-circle"></i><span>Latino</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/matureguy">
+              <i class="bi bi-circle"></i><span>Matureguy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/muscle">
+              <i class="bi bi-circle"></i><span>Muscle</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/straight">
+              <i class="bi bi-circle"></i><span>Straight</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cat/uncut">
+              <i class="bi bi-circle"></i><span>Uncut</span>
             </a>
           </li>
         </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class="nav-heading">Pages</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
+      </li><!-- End All Categories Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -320,11 +596,11 @@
       <div class="row">
 
         <!-- Left side columns -->
-        <div class="col-lg-8">
-          <div class="row">
+        <div class="col-lg-12">
+          <div class="row d-flex align-items-center justify-content-center">
 
             <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
+            <div class="col-lg-8">
               <div class="card info-card sales-card">
 
                 <div class="filter">
@@ -341,7 +617,7 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Random Live Cam</h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -358,43 +634,10 @@
               </div>
             </div><!-- End Sales Card -->
 
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
+           
 
             <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
+            <div class="col-12">
 
               <div class="card info-card customers-card">
 
