@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Camstel.tv is coming soon</title>
+  <title>Camstel.tv is coming soon!</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <base href="/">

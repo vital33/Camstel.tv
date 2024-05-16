@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/cat/{category_name}', "PerformerController@test");
+Route::get('/model/{name}', "PerformerController@test");
+

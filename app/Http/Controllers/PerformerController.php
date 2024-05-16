@@ -101,9 +101,19 @@ class PerformerController extends Controller
     {
 
         $cat = Category::where('name', $category_name)->first();
-
         if($cat) {
-            return view('main', ['category_name' => $category_name]);
+            return view('category', ['category_name' => $category_name]);
+        }
+        return view('404');
+
+    }
+
+    public function model(Request $r, $model_name)
+    {
+
+        $model = Category::where('name', $model_name)->first();
+        if($model) {
+            return view('model', ['model_name' => $model_name]);
         }
         return view('404');
 
