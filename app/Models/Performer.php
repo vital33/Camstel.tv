@@ -17,4 +17,9 @@ class Performer extends Model
     {
         return $this->belongsToMany(\App\Models\Category::class, 'model_to_category', 'model_id');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
 }

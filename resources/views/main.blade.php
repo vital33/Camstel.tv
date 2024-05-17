@@ -103,9 +103,9 @@
         </a>
       </li>
       <hr>
-      
-      
-      
+
+
+
       <!-- End Gender Nav -->
 
       <li class="nav-heading">
@@ -587,7 +587,10 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Dashboard</li>
-          <li class="breadcrumb-item">{{$category_name}}</li>
+          @if (!empty($category_name))
+            <li class="breadcrumb-item">{{$category_name}}</li>
+          @endif
+
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -634,7 +637,7 @@
               </div>
             </div><!-- End Sales Card -->
 
-           
+
 
             <!-- Customers Card -->
             <div class="col-12">
@@ -664,7 +667,7 @@
                     <div class="ps-3">
                       <h6>124</h6>
                       <div>
-                      @include("test", ['name' => "amy"])
+                      @include("test", ['name' => "amy", 'category_name' => null])
                       </div>
                       <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
 
