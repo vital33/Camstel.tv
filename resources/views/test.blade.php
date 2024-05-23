@@ -16,7 +16,7 @@
                     $q->where('category.name', $category_name);
                 }
             })->limit(15)->get() as $model )
-    <div>{{$model->nick}}-{{$model->id}}</div>
+    <div><img src="{{$model->Thumbnail}}"> {{$model->nick}}-{{$model->id}}</div>
 
 
 @endforeach;
