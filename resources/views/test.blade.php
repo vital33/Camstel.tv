@@ -11,11 +11,8 @@
             })->limit(5)->get()); }}
 </pre> -->
 
-@foreach(\App\Models\Performer::where('is_active', 1)->whereHas('categories', function ($q) use ($category_name){
-                if($category_name){
-                    $q->where('category.name', $category_name);
-                }
-            })->limit(15)->get() as $model )
+
+@foreach($models as $model )
     <div><img src="{{$model->Thumbnail}}"> {{$model->nick}}-{{$model->id}}</div>
 
 

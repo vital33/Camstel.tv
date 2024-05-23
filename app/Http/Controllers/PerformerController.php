@@ -97,6 +97,34 @@ class PerformerController extends Controller
         );
     }
 
+    public function public(Request $r, $category_name = null)
+    {
+
+        $this->validate($r, []);
+
+        $selects = ["model_id"];
+        foreach(["Age", "Gender", "Rating", "Country", "Thumbnail"] as $field) {
+            $selects[] = sprintf(' (case when type = "%s" then value end) AS %s', $field, $field);
+        }
+
+        $mdSub = \DB::table('model_data')
+            ->selectRaw(implode(",", $selects))
+            ->groupBy('model_id')
+            ->groupBy('type')
+            ->groupBy('value');
+
+        $models = \App\Models\Performer::leftJoinSub($mdSub, 'md', function ($join) {
+            $join->on('md.model_id', '=', 'model.id');
+        })->where('is_active', 1)
+            ->whereHas('categories', function ($q) use ($category_name) {
+                if($category_name) {
+                    $q->where('category.name', $category_name);
+                }
+            })->select('model.*', 'md.*')->limit(15)->get();
+
+        return view('main', ['category_name' => $category_name, 'models' => $models]);
+    }
+
     public function test(Request $r, $category_name)
     {
 

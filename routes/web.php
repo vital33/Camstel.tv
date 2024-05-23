@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+// Route::get('/', function () {
+//     return view('main');
+// });
+
+Route::get('/', "PerformerController@public");
 
 Route::get('/cat/{category_name}', "PerformerController@test");
 Route::get('/model/{name}', "PerformerController@test");
-

@@ -667,7 +667,7 @@
                     <div class="ps-3">
                       <h6>124</h6>
                       <div>
-                      @include("test", ['name' => "amy", 'category_name' => null])
+                      @include("test", ['name' => "amy", 'category_name' => null, 'models' => $models])
                       </div>
                       <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
 
