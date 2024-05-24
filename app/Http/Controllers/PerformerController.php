@@ -102,6 +102,10 @@ class PerformerController extends Controller
 
         $this->validate($r, []);
 
+        if($category_name && !\App\Models\Category::where('name', $category_name)->first()) {
+            return view('404', ['category_name' => $category_name, 'error' => "Category not found"]);
+        }
+
         $selects = ["model_id"];
         foreach(["Age", "Gender", "Rating", "Country", "Thumbnail"] as $field) {
             $selects[] = sprintf(' max(case when type = "%s" then value end) AS %s', $field, $field);
