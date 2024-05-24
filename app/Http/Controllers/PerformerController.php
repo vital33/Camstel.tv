@@ -104,14 +104,12 @@ class PerformerController extends Controller
 
         $selects = ["model_id"];
         foreach(["Age", "Gender", "Rating", "Country", "Thumbnail"] as $field) {
-            $selects[] = sprintf(' (case when type = "%s" then value end) AS %s', $field, $field);
+            $selects[] = sprintf(' max(case when type = "%s" then value end) AS %s', $field, $field);
         }
 
         $mdSub = \DB::table('model_data')
             ->selectRaw(implode(",", $selects))
-            ->groupBy('model_id')
-            ->groupBy('type')
-            ->groupBy('value');
+            ->groupBy('model_id');
 
         $models = \App\Models\Performer::leftJoinSub($mdSub, 'md', function ($join) {
             $join->on('md.model_id', '=', 'model.id');
