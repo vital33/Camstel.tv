@@ -1,22 +1,10 @@
-<div>Hi</div>
-
-
-<!-- {{ print_r(['d' => 'g'])}}-->
-
-{{ $name; }}
-{{ $category_name }}
-<!-- <pre>
-{{print_r(\App\Models\Performer::where('is_active', 1)->whereHas('categories', function ($q) {
-                $q->where('category.name', 'asian');
-            })->limit(5)->get()); }}
-</pre> -->
 
 
 @foreach($models as $model )
-    <div><img src="{{$model->Thumbnail}}"> {{$model->nick}}-{{$model->id}}</div>
+    <div class="col"><div class="mod_box_wrap"><a href="/model/{{$model->nick}}"><img class="img-fluid w-100" alt="{{$model->nick}}" src="{{$model->Thumbnail}}"><div class="mod_box"><div>{{$model->nick}} {{$model->Rating}}</div><div><div title="{{$model->Country}}" class="flg flg-{{$model->Country}}"></div><div class="separator"></div>{{$model->Age}}</div></div></div></a></div>
 
 
-@endforeach;
+@endforeach
 
 <script>
 

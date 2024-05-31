@@ -1263,3 +1263,360 @@ li.lft a{
   font-size: 13px;
   color: #444;
 }
+
+
+
+.row-cols-7 > * {
+  flex: 0 0 auto;
+  width: 14.2857143%;
+}
+
+@media (min-width: 576px) {
+  .row-cols-sm-7 > * {
+    flex: 0 0 auto;
+    width: 14.2857143%;
+  }
+}
+@media (min-width: 768px) {
+  .row-cols-md-7 > * {
+    flex: 0 0 auto;
+    width: 14.2857143%;
+  }
+}
+@media (min-width: 992px) {
+  .row-cols-lg-7 > * {
+    flex: 0 0 auto;
+    width: 14.2857143%;
+  }
+}
+@media (min-width: 1200px) {
+  .row-cols-xl-7 > * {
+    flex: 0 0 auto;
+    width: 14.2857143%;
+  }
+}
+@media (min-width: 1400px) {
+  .row-cols-xxl-7 > * {
+    flex: 0 0 auto;
+    width: 14.2857143%;
+  }
+}
+@media (min-width: 576px) {
+  .row-cols-sm-8 > * {
+    flex: 0 0 auto;
+    width: 12.5%;
+  }
+}
+@media (min-width: 768px) {
+  .row-cols-md-8 > * {
+    flex: 0 0 auto;
+    width: 12.5%;
+  }
+}
+@media (min-width: 992px) {
+  .row-cols-lg-8 > * {
+    flex: 0 0 auto;
+    width: 12.5%;
+  }
+}
+@media (min-width: 1200px) {
+  .row-cols-xl-8 > * {
+    flex: 0 0 auto;
+    width: 12.5%;
+  }
+}
+@media (min-width: 1400px) {
+  .row-cols-xxl-8 > * {
+    flex: 0 0 auto;
+    width: 12.5%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .row-cols-xxxl-6 > * {
+    flex: 0 0 auto;
+    width: 16.66%;
+  }
+}
+@media (min-width: 2200px) {
+  .row-cols-xxxxl-8 > * {
+    flex: 0 0 auto;
+    width: 12.5%;
+  }
+}
+.mod_box_wrap{
+  position: relative;
+  overflow: hidden;
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.mod_box{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  white-space: nowrap;
+  color: #fff !important;
+  text-overflow: ellipsis;
+  background: rgba(0,0,0,.37);
+  height: 26px;
+  padding: 0 6px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+}
+.mod_box::before{
+  content: "\2022";
+  color: rgb(66, 225, 13);
+  font-size: 40px;
+  float: left;
+  padding: 0 6px 0 0;
+  line-height: 26px;
+}
+.mod_box div:nth-of-type(1){
+  flex-grow: 1 !important;
+}
+.mod_box div:nth-of-type(2){
+display: inherit;
+  align-items: inherit;
+}
+.separator::before{
+  content: "|";
+  color: #d5d3d3;
+}
+.separator{
+padding: 0 4px;
+line-height: 1;
+}
+/*--------------------------------------------------------------
+# Flags
+--------------------------------------------------------------*/
+
+.flg {
+  display: inline-block;
+  background-size: 240px 216px;
+  width: 15px;
+  height: 11px;
+  background-image: url(/i/flg.png);
+}
+
+.flg-US {
+  background-position:-16px -48px
+}
+.flg-CA {
+  background-position:-192px -192px
+}
+.flg-GB {
+  background-position:-96px -168px
+}
+.flg-RO {
+  background-position:-96px -96px
+}
+.flg-RU {
+  background-position:-64px -96px
+}
+.flg-FR {
+  background-position:0 -180px
+}
+.flg-CO {
+  background-position:-16px -192px
+}
+.flg-AU {
+  background-position:-112px -204px
+}
+.flg-UA {
+  background-position:-64px -12px
+}
+.flg-LV {
+  background-position:-144px -96px
+}
+.flg-HU {
+  background-position:-160px -132px
+}
+.flg-ZA {
+  background-position:0 -12px
+}
+.flg-JM {
+  background-position:-160px -108px
+}
+.flg-BR {
+  background-position:-208px -72px
+}
+.flg-PH {
+  background-position:-32px -108px
+}
+.flg-AR {
+  background-position:-160px -204px
+}
+.flg-ES {
+  background-position:-128px -180px
+}
+.flg-BG {
+  background-position:-208px -180px
+}
+.flg-PL {
+  background-position:0 -108px
+}
+.flg-IE {
+  background-position:-96px -156px
+}
+.flg-AM {
+  background-position:-208px -204px
+}
+.flg-AT {
+  background-position:-128px -204px
+}
+.flg-AZ {
+  background-position:-64px -204px
+}
+.flg-AL {
+  background-position:-224px 0
+}
+.flg-BS {
+  background-position:-208px -60px
+}
+.flg-CN {
+  background-position:-32px -192px
+}
+.flg-UG {
+  background-position:-64px 0
+}
+.flg-KE {
+  background-position:-160px -72px
+}
+.flg-MG {
+  background-position:-144px -12px
+}
+.flg-SC {
+  background-position:0 -96px
+}
+.flg-DE {
+  background-position:-192px -108px
+}
+.flg-LT {
+  background-position:-144px -120px
+}
+.flg-EE {
+  background-position:-192px -24px
+}
+.flg-RS {
+  background-position:-80px -96px
+}
+.flg-BY {
+  background-position:-208px -12px
+}
+.flg-IN {
+  background-position:-48px -156px
+}
+.flg-CY {
+  background-position:-192px -132px
+}
+.flg-JP {
+  background-position:-160px -84px
+}
+.flg-TR {
+  background-position:-16px -60px
+}
+.flg-KZ {
+  background-position:-96px -144px
+}
+.flg-MN {
+  background-position:-80px -132px
+}
+.flg-SA {
+  background-position:-32px -96px
+}
+.flg-TH {
+  background-position:-80px -36px
+}
+.flg-MX {
+  background-position:-64px -120px
+}
+.flg-VE {
+  background-position:-48px 0
+}
+.flg-BE {
+  background-position:0 -204px
+}
+.flg-IT {
+  background-position:-160px -132px
+}
+.flg-PA {
+  background-position:-96px -108px
+}
+.flg-DO {
+  background-position:-192px -60px
+}
+.flg-EC {
+  background-position:-192px -36px
+}
+.flg-SK {
+  background-position:-96px -12px
+}
+.flg-PR {
+  background-position:-112px -72px
+}
+.flg-SI {
+  background-position:-96px -12px
+}
+.flg-PE {
+  background-position:-80px -108px
+}
+.flg-GR {
+  background-position:-176px -96px
+}
+.flg-ZM {
+  background-position:-16px 0
+}
+.flg-GH {
+  background-position:-16px -168px
+}
+.flg-HR {
+  background-position:-160px -156px
+}
+.flg-LS {
+  background-position:-144px -132px
+}
+.flg-FI {
+  background-position:-80px -180px
+}
+.flg-CZ {
+  background-position:-192px -120px
+}
+.flg-HK {
+  background-position:-176px -24px
+}
+.flg-IL {
+  background-position:-80px -156px
+}
+.flg-VN {
+  background-position:0 -36px
+}
+.flg-MD {
+  background-position:-144px -48px
+}
+.flg-DK {
+  background-position:-160px -84px
+}
+.flg-PT {
+  background-position:-112px -48px
+}
+.flg-MZ {
+  background-position:-32px -120px
+}
+.flg-LU {
+  background-position:-144px -108px
+}
+.flg-PK {
+  background-position:-16px -108px
+}
+.flg-NL {
+  background-position:-128px -60px
+}
+.flg-NO {
+  background-position:-96px -24px
+}
+.flg-SE {
+  background-position:-96px -72px
+}

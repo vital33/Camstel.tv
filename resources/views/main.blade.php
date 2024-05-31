@@ -661,13 +661,15 @@
                   <h5 class="card-title">Customers <span>| This Year</span></h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
                     <div class="ps-3">
                       <h6>124</h6>
-                      <div>
-                      @include("test", ['name' => "amy", 'category_name' => null, 'models' => $models])
+                      <div class="container-fluid mod_feed">
+                        
+                        {{ $category_name }}
+                        <div class="row g-1 row-cols-2 row-cols-md-3 row-cols-xl-4 row-cols-xxxl-6  row-cols-xxxxl-8">
+
+                      @include("test", ['models' => $models])
+                      </div>
                       </div>
                       <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
 

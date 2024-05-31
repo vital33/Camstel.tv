@@ -43,7 +43,7 @@ class PerformerController extends Controller
         //   console.log(response);
         // });
 
-        $per_page = $r->per_page ?? 15;
+        $per_page = $r->per_page ?? 35;
         $page = ($r->page ?? 1);
         $offset = ($per_page * $page) - $per_page;
 
@@ -100,7 +100,18 @@ class PerformerController extends Controller
     public function public(Request $r, $category_name = null)
     {
 
-        $this->validate($r, []);
+        $per_page = $r->per_page ?? 15;
+        $page = ($r->page ?? 1);
+        $offset = ($per_page * $page) - $per_page;
+
+        $this->validate($r, [
+            'search' => 'nullable|max:255',
+            'category' => 'nullable|array',
+            'category.*' => 'numeric',
+            'types' => 'nullable|array',
+            'types.*.type' => 'in:' . implode(',', \App\Models\PerformerData::$types),
+            'types.*.value' => 'max:255|numeric',
+        ]);
 
         if($category_name && !\App\Models\Category::where('name', $category_name)->first()) {
             return view('404', ['category_name' => $category_name, 'error' => "Category not found"]);
@@ -122,7 +133,7 @@ class PerformerController extends Controller
                 if($category_name) {
                     $q->where('category.name', $category_name);
                 }
-            })->select('model.*', 'md.*')->limit(15)->get();
+            })->select('model.*', 'md.*')->limit($per_page)->get();
 
         return view('main', ['category_name' => $category_name, 'models' => $models]);
     }
