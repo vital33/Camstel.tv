@@ -118,7 +118,7 @@ class PerformerController extends Controller
         }
 
         $selects = ["model_id"];
-        foreach(["Age", "Gender", "Rating", "Country", "Thumbnail"] as $field) {
+        foreach(["Age", "Gender", "Stars", "Country", "Thumbnail", "GoldShow", "PreGoldSHow"] as $field) {
             $selects[] = sprintf(' max(case when type = "%s" then value end) AS %s', $field, $field);
         }
 
