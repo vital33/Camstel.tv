@@ -46,7 +46,7 @@ class BL
         $this->instance = new AuthSdk(self::APP_ID, self::TOKEN);
         ini_set('memory_limit', '256M');
     }
-//private
+    //private
     private function getListData()
     {
         return $this->instance->post(self::LIST_URL, $this->params);
@@ -200,7 +200,7 @@ class BL
 
                         $placeholder = implode(', ', array_fill(0, count($values), $rowPlaces));
 
-                        $sql = "INSERT INTO `model_data` (" . implode(',', $columns) . ") VALUES " . implode(',', $values);
+                        $sql = "INSERT INTO `model_data` (" . implode(',', $columns) . ") VALUES " . implode(',', $values) . "ON DUPLICATE KEY UPDATE `value` = VALUES(`value`), updated_at = NOW()";
 
                         $result = \DB::statement($sql);
 
