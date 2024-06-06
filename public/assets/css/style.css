@@ -1407,14 +1407,15 @@ color: #000;
   bottom: 31px;
   color: #ffb300;
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-  font-size: 0.9em;
+  font-family: "Arial Unicode MS", Arial, arial, sans-serif;
+  font-size: 1.1em;
 }
 .star{
   display: inline-block;
   position: relative;
 }
 .star + .star {
-    margin-left: -.25em;
+    margin-left: -.16em;
 }
 .star::before {
   content: "★";
