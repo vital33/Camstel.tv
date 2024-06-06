@@ -1407,27 +1407,31 @@ color: #000;
   bottom: 31px;
   color: #ffcb00;
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-  font-size: 10px;
+}
+.star{
+  display: inline-block;
+  position: relative;
 }
 .star + .star {
     margin-left: -.25em;
 }
 .star::before {
-  content: "\2605";
+  content: "★";
 }
-.star{
-  display: inline-block;
-}
-.rating4_half .star:nth-child(5):before {
-	content: "\2605";
-}
-.rating4_half .star:nth-child(5):after {
-	content: "\2606";
-  margin-left: -20px;
-  width: 10px;
+.star::after {
+  color: gold;
+  position: absolute;
+  width: 56%;
   overflow: hidden;
+  left: 0;
 }
 
+.rating4_half .star:nth-child(5):before {
+  color: #f5f5f5;
+}
+.rating4_half .star:nth-child(5):after {
+  content: "★";
+}
 .rating0 .star:nth-child(5):before,
 .rating0_half .star:nth-child(5):before,
 .rating1 .star:nth-child(5):before,
@@ -1437,13 +1441,15 @@ color: #000;
 .rating3 .star:nth-child(5):before,
 .rating3_half .star:nth-child(5):before,
 .rating4 .star:nth-child(5):before {
-	content: "\2606"
+  color:#f5f5f5;
 }
 
 .rating3_half .star:nth-child(4):before {
-	content: "\2605"
+  color:#f5f5f5;
 }
-
+.rating3_half .star:nth-child(4):after {
+  content: "★";
+}
 .rating0 .star:nth-child(4):before,
 .rating0_half .star:nth-child(4):before,
 .rating1 .star:nth-child(4):before,
@@ -1451,37 +1457,41 @@ color: #000;
 .rating2 .star:nth-child(4):before,
 .rating2_half .star:nth-child(4):before,
 .rating3 .star:nth-child(4):before {
-	content: "\2606"
+  color:#f5f5f5;
 }
 
 .rating2_half .star:nth-child(3):before {
-	content: "\2605"
+  color:#f5f5f5;
 }
-
+.rating2_half .star:nth-child(3):after {
+  content: "★";
+}
 .rating0 .star:nth-child(3):before,
 .rating0_half .star:nth-child(3):before,
 .rating1 .star:nth-child(3):before,
 .rating1_half .star:nth-child(3):before,
 .rating2 .star:nth-child(3):before {
-	content: "\2BEA"
+  color:#f5f5f5;
 }
 
 .rating1_half .star:nth-child(2):before {
-	content: "\2605"
+  color:#f5f5f5;
 }
-
+.rating1_half .star:nth-child(2):after {
+  content: "★";
+}
 .rating0 .star:nth-child(2):before,
 .rating0_half .star:nth-child(2):before,
 .rating1 .star:nth-child(2):before {
-	content: "\2BEA"
+  color:#f5f5f5;
 }
 
 .rating0_half .star:nth-child(1):before {
-	content: "\2605"
+  color:#f5f5f5;
 }
 
 .rating0 .star:nth-child(1):before {
-	content: "\2BEA"
+  color:#f5f5f5;
 }
 /*--------------------------------------------------------------
 # Flags

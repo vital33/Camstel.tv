@@ -100,7 +100,7 @@ class PerformerController extends Controller
     public function public(Request $r, $category_name = null)
     {
 
-        $per_page = $r->per_page ?? 15;
+        $per_page = $r->per_page ?? 20;
         $page = ($r->page ?? 1);
         $offset = ($per_page * $page) - $per_page;
 
@@ -118,7 +118,7 @@ class PerformerController extends Controller
         }
 
         $selects = ["model_id"];
-        foreach(["Age", "Gender", "Stars", "Country", "Thumbnail", "GoldShow", "PreGoldSHow"] as $field) {
+        foreach(["Age", "Gender", "Stars", "Country", "Thumbnail", "StatusKey"] as $field) {
             $selects[] = sprintf(' max(case when type = "%s" then value end) AS %s', $field, $field);
         }
 
