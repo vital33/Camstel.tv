@@ -100,7 +100,7 @@ class PerformerController extends Controller
     public function public(Request $r, $category_name = null)
     {
 
-        $per_page = $r->per_page ?? 200;
+        $per_page = $r->per_page ?? 20;
         $page = ($r->page ?? 1);
         $offset = ($per_page * $page) - $per_page;
 
