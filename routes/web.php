@@ -20,4 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', "PerformerController@public");
 
 Route::get('/cat/{category_name}', "PerformerController@public");
-Route::get('/model/{name}', "PerformerController@test");
+Route::get('/model/{name}', "PerformerController@model");

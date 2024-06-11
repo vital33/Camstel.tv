@@ -8,6 +8,16 @@ class Performer extends Model
 {
     protected $table = 'model';
 
+    protected $fillable = [
+        "nick",
+        "external_id",
+        "created_at",
+        "updated_at",
+        "vendor_id",
+        "external_sort_order",
+        "last_online_at"
+    ];
+
     public function data()
     {
         return $this->hasMany(\App\Models\PerformerData::class, 'model_id', 'id');

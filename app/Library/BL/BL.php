@@ -27,6 +27,7 @@ class BL
     private $params = [
         "from" => 0,
         "size" => 10000,
+        // "filters" => "online:true"
     ];
 
     private $offset = 0;
@@ -93,12 +94,13 @@ class BL
             $model_data = [];
             $all_categories = [];
 
+            var_dump($list['TotalResultCount']);
             if (isset($list['status']) && $list['status'] == self::SM_OK) {
                 try {
 
                     $values = [];
 
-                    $columns = ["nick", "external_id", "created_at", "updated_at", "vendor_id", "external_sort_order"];
+                    $columns = ["nick", "external_id", "created_at", "updated_at", "vendor_id", "external_sort_order", "last_online_at"];
 
                     $keys = !empty($list['Results'][0]) ? array_keys($list['Results'][0]) : [];
 
@@ -107,7 +109,7 @@ class BL
                         $values = array_merge(
                             $values,
                             [
-                                $r['Nickname'], $r['PerformerId'], "$now", "$now", $vendor_id, $index
+                                $r['Nickname'], $r['PerformerId'], "$now", "$now", $vendor_id, $index, (in_array($r['LiveStatus'], ['live']) ? $now : null)
                             ]
                         );
 
@@ -115,7 +117,7 @@ class BL
                             'nick' => $r['Nickname'],
                             'categories' => $r['Categories'] // [2,4,5]
                         ];
-                        // var_dump($keys);
+
                         $model_data[$r['Nickname']] = array_reduce($keys, function ($acc, $k) use ($r) {
                             if (!in_array($k, ['Nickname', 'PerformerId', 'CategoryName', 'Categories', "Languages"])) {
                                 $acc[$k] = $this->mapValue($k, $r[$k]);
@@ -146,7 +148,7 @@ class BL
 
                         $start = microtime(1);
 
-                        $sql = "INSERT INTO `model` (" . implode(',', $columns) . ") VALUES $placeholder ON DUPLICATE KEY UPDATE `updated_at`=\"$now\"";
+                        $sql = "INSERT INTO `model` (" . implode(',', $columns) . ") VALUES $placeholder ON DUPLICATE KEY UPDATE `updated_at`=\"$now\", `last_online_at`=if(VALUES(last_online_at) is null, last_online_at, VALUES(last_online_at))";
 
                         $result = \DB::statement($sql, $values);
 

@@ -133,7 +133,7 @@ class PerformerController extends Controller
                 if($category_name) {
                     $q->where('category.name', $category_name);
                 }
-            })->select('model.*', 'md.*')->limit($per_page)->get();
+            })->select('model.*', 'md.*')->offset($offset)->limit($per_page)->get();
 
         return view('main', ['category_name' => $category_name, 'models' => $models]);
     }
@@ -152,9 +152,20 @@ class PerformerController extends Controller
     public function model(Request $r, $model_name)
     {
 
-        $model = Category::where('name', $model_name)->first();
+        $model = \App\Models\Performer::with('data')->active()
+            ->where('nick', $model_name)
+            ->first();
         if($model) {
-            return view('model', ['model_name' => $model_name]);
+            $model = $model->data->reduce(function ($acc, $d) {
+                if(isset($acc->{$d->type})) {
+                    $acc->{$d->type} = array_merge((is_array($acc->{$d->type}) ? $acc->{$d->type} : [$acc->{$d->type}]), (is_array($d->value) ? $d->value : [$d->value]));
+                } else {
+                    $acc->{$d->type} = $d->value;
+                }
+                return $acc;
+            }, $model);
+            unset($model->data);
+            return view('model', ['model_name' => $model_name, 'model' => $model]);
         }
         return view('404');
 
