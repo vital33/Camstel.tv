@@ -99,7 +99,11 @@ class PerformerController extends Controller
 
     public function public(Request $r, $category_name = null)
     {
-
+        if ($category_name === 'girls') {
+            $category_name = 'livesex';
+        }elseif ($category_name === 'boys') {
+            $category_name = 'allguys';
+        }
         $per_page = $r->per_page ?? 20;
         $page = ($r->page ?? 1);
         $offset = ($per_page * $page) - $per_page;
@@ -140,6 +144,11 @@ class PerformerController extends Controller
 
     public function test(Request $r, $category_name)
     {
+        if ($category_name === 'girls') {
+            $category_name = 'livesex';
+        }elseif ($category_name === 'boys') {
+            $category_name = 'allguys';
+        }
 
         $cat = Category::where('name', $category_name)->first();
         if($cat) {
@@ -170,4 +179,188 @@ class PerformerController extends Controller
         return view('404');
 
     }
-}
+   
+
+
+
+
+
+
+
+
+
+
+/******* ALL CATEGORIES **********
+    [
+        'slug' => 'anal',
+        'label' => 'Anal',
+    ],[
+        'slug' => 'asian',
+        'label' => 'Asian',
+    ],[
+        'slug' => 'babes',
+        'label' => 'Babes',
+    ],[
+        'slug' => 'bbw',
+        'label' => 'BBW',
+    ],[
+        'slug' => 'big_tits',
+        'label' => 'Big Tits',
+    ],[
+        'slug' => 'blonde',
+        'label' => 'Blonde',
+    ],[
+        'slug' => 'bondage',
+        'label' => 'Bondage',
+    ],[
+        'slug' => 'brunette',
+        'label' => 'Brunette',
+    ],[
+        'slug' => 'couples',
+        'label' => 'Couples',
+    ],[
+        'slug' => 'curvy',
+        'label' => 'Curvy',
+    ],[
+        'slug' => 'ebony',
+        'label' => 'Ebony',
+    ],[
+        'slug' => 'feet',
+        'label' => 'Feet',
+    ],[
+        'slug' => 'girlfriends',
+        'label' => 'Girlfriends',
+    ],[
+        'slug' => 'granny',
+        'label' => 'Granny',
+    ],[
+        'slug' => 'groupsex',
+        'label' => 'Group Sex',
+    ],[
+        'slug' => 'hairy',
+        'label' => 'Hairy',
+    ],[
+        'slug' => 'housewives',
+        'label' => 'Housewives',
+    ],[
+        'slug' => 'huge_tits',
+        'label' => 'Huge Tits',
+    ],[
+        'slug' => 'latina',
+        'label' => 'Latina',
+    ],[
+        'slug' => 'leather',
+        'label' => 'Leather',
+    ],[
+        'slug' => 'lesbian',
+        'label' => 'Lesbian',
+    ],[
+        'slug' => 'mature',
+        'label' => 'Mature',
+    ],[
+        'slug' => 'medium_tits',
+        'label' => 'Medium Tits',
+    ],[
+        'slug' => 'muscle',
+        'label' => 'Muscle',
+    ],[
+        'slug' => 'petite',
+        'label' => 'Petite',
+    ],[
+        'slug' => 'pornstar',
+        'label' => 'Pornstar',
+    ],[
+        'slug' => 'pregnant',
+        'label' => 'Pregnant',
+    ],[
+        'slug' => 'redhead',
+        'label' => 'Redhead',
+    ],[
+        'slug' => 'shaved',
+        'label' => 'Shaved',
+    ],[
+        'slug' => 'small_tits',
+        'label' => 'Small Tits',
+    ],[
+        'slug' => 'smoking_cigars',
+        'label' => 'Smoking Cigars',
+    ],[
+        'slug' => 'teen',
+        'label' => 'Teen',
+    ],[
+        'slug' => 'toys',
+        'label' => 'Toys',
+    ],[
+        'slug' => 'trans_girl',
+        'label' => 'Trans Girl',
+    ],[
+        'slug' => 'trimmed',
+        'label' => 'Trimmed',
+    ],[
+        'slug' => 'white',
+        'label' => 'White',
+    ],[
+        'slug' => 'all_guys',
+        'label' => 'All Guys',
+    ],[
+        'slug' => 'alternadudes',
+        'label' => 'Alternadudes',
+    ],[
+        'slug' => 'anal_guy',
+        'label' => 'Anal Guy',
+    ],[
+        'slug' => 'asian_guy',
+        'label' => 'Asian Guy',
+    ],[
+        'slug' => 'athletic_guy',
+        'label' => 'Athletic Guy',
+    ],[
+        'slug' => 'bdsm',
+        'label' => 'BDSM',
+    ],[
+        'slug' => 'bear',
+        'label' => 'Bear',
+    ],[
+        'slug' => 'bi',
+        'label' => 'Bi',
+    ],[
+        'slug' => 'big_cock',
+        'label' => 'Big Cock',
+    ],[
+        'slug' => 'black_guy',
+        'label' => 'Black Guy',
+    ],[
+        'slug' => 'couples_guy',
+        'label' => 'Couples Guy',
+    ],[
+        'slug' => 'daddy',
+        'label' => 'Daddy',
+    ],[
+        'slug' => 'gay',
+        'label' => 'Gay',
+    ],[
+        'slug' => 'guy_friends',
+        'label' => 'Guy Friends',
+    ],[
+        'slug' => 'guy_next_door',
+        'label' => 'Guy Next Door',
+    ],[
+        'slug' => 'latino_guy',
+        'label' => 'Latino Guy',
+    ],[
+        'slug' => 'mature_guy',
+        'label' => 'Mature guy',
+    ],[
+        'slug' => 'muscle_guy',
+        'label' => 'Muscle Guy',
+    ],[
+        'slug' => 'straight',
+        'label' => 'Straight',
+    ],[
+        'slug' => 'uncut',
+        'label' => 'Uncut',
+    ]
+*************************************/
+
+
+    }

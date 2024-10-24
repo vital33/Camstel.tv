@@ -11,8 +11,8 @@
   <base href="/">
 
   <!-- Favicons -->
-  <link href="/assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/assets/img/favicon.png" rel['icon']">
+  <link href="assets/img/apple-touc['icon'].png" rel="apple-touc['icon']">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -52,11 +52,11 @@
     </div><!-- End Search Bar -->
 
     <nav class="header-nav">
-    <ul class="d-flex align-items-center">
-    <li class="mav-item"><a href="#" class="nav-link nav-icon"><button type="button" class="btn btn-warning">Join Free</button></a></li>
- <li class="mav-item"><a href="#" class="nav-link nav-icon"><button type="button" class="btn btn-outline-secondary">Login</button></a></li>
+      <ul class="d-flex align-items-center">
+        <li class="mav-item"><a href="#" class="nav-link na['icon']"><button type="button" class="btn btn-warning">Join Free</button></a></li>
+        <li class="mav-item"><a href="#" class="nav-link na['icon']"><button type="button" class="btn btn-outline-secondary">Login</button></a></li>
         <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
+          <a class="nav-link na['icon'] search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
@@ -72,509 +72,27 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-    <li class="nav-item bgr">
-        <a class="nav-link" href="/">
-          <i class="bi bi-house"></i>
-          <span>All Cams</span>
-        </a>
-      </li>
-      <li class="nav-item bgr">
-        <a class="nav-link collapsed" href="/">
-          <i class="bi bi-gender-female"></i>
-          <span>Girls</span>
-        </a>
-      </li>
-      <li class="nav-item bgr">
-        <a class="nav-link collapsed" href="/">
-          <i class="bi bi-gender-male"></i>
-          <span>Boys</span>
-        </a>
-      </li>
-      <li class="nav-item bgr">
-        <a class="nav-link collapsed" href="/">
-          <i class="bi bi-gender-ambiguous"></i>
-          <span>Couples</span>
-        </a>
-      </li>
-      <li class="nav-item bgr">
-        <a class="nav-link collapsed" href="/">
-          <i class="bi bi-gender-trans"></i>
-          <span>Trans</span>
-        </a>
-      </li>
-      <hr>
+    @foreach(\App\Models\Category:: categoryListShort() as $cat)
 
-
-
-      <!-- End Gender Nav -->
-
+      @if(isset($cat['slug']))
+      <li class="nav-item {{ $loop->iteration <= 5 ? 'bgr' : 'lft' }}">
+        <a class="nav-link {{ Request::path()==='cat/'.($cat['slug']) ? '' : 'collapsed' }}" href="/cat/{{ $cat['slug'] }}">
+          @if(isset($cat['icon']))
+          <i class="bi bi-{{ $cat['icon'] }}"></i>
+          @endif
+          <span>{{ $cat['label'] }}</span>
+        </a>
+      </li>
+      @else
       <li class="nav-heading">
-        <i class="bi bi-globe"></i>
-        <span>Region:</span>
+        @if(isset($cat['icon']))
+        <i class="bi bi-{{ $cat['icon'] }}"></i>
+        @endif
+        <span>{{ $cat['label'] }}</span>
       </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>USA/Canada</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>South America</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Europe</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Asia</span>
-        </a>
-      </li>
-      <hr>
+      @endif
 
-
-
-      <!-- End Region Nav -->
-
-
-      <li class="nav-heading">
-      <i class="bi bi-person-circle"></i>
-      <span>Race:</span>
-    </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>White</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Black</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Latino</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Asian</span>
-        </a>
-      </li>
-      <hr>
-
-
-
-
-      <!-- End Race Nav -->
-
-
-
-      <li class="nav-heading">
-      <i class="bi bi-sort-down-alt"></i>
-      <span>Age:</span>
-    </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>18-25</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>25-40</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>40+</span>
-        </a>
-      </li>
-      <hr>
-
-
-
-
-      <!-- End Age Nav -->
-
-      <li class="nav-heading">
-      <i class="bi bi-bar-chart-line-fill"></i>
-      <span>Top Categories:</span>
-    </li>
-    <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Big Boobs</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Squirt</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Lovense</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Anal</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Teen</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Big Ass</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Latina</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Natural</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Asian</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Shy</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Feet</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>MILF</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Small tits</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Skinny</span>
-        </a>
-      </li>
-      <li class="nav-item lft">
-        <a class="nav-link collapsed" href="/">
-          <span>Pornstar</span>
-        </a>
-      </li>
-      <!-- End Top Categories Nav -->
-
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed text-uppercase" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>All Categories</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-  <div class="d-flex justify-content-center text-uppercase fw-bold">--- Girl ---</div>
-          </li>
-        <li>
-            <a href="/cat/anal">
-              <i class="bi bi-circle"></i><span>Anal</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/asian">
-              <i class="bi bi-circle"></i><span>Asian</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/babes">
-              <i class="bi bi-circle"></i><span>Babes</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/bbw">
-              <i class="bi bi-circle"></i><span>Bbw</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/bigtits">
-              <i class="bi bi-circle"></i><span>Bigtits</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/blonde">
-              <i class="bi bi-circle"></i><span>Blonde</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/bondage">
-              <i class="bi bi-circle"></i><span>Bondage</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/brunette">
-              <i class="bi bi-circle"></i><span>Brunette</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/couples">
-              <i class="bi bi-circle"></i><span>Couples</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/curvy">
-              <i class="bi bi-circle"></i><span>Curvy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/ebony">
-              <i class="bi bi-circle"></i><span>Ebony</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/feet">
-              <i class="bi bi-circle"></i><span>Feet</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/girlfriends">
-              <i class="bi bi-circle"></i><span>Girlfriends</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/granny">
-              <i class="bi bi-circle"></i><span>Granny</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/groupsex">
-              <i class="bi bi-circle"></i><span>Groupsex</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/hairy">
-              <i class="bi bi-circle"></i><span>Hairy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/housewives">
-              <i class="bi bi-circle"></i><span>Housewives</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/hugetits">
-              <i class="bi bi-circle"></i><span>Hugetits</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/latina">
-              <i class="bi bi-circle"></i><span>Latina</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/leather">
-              <i class="bi bi-circle"></i><span>Leather</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/lesbian">
-              <i class="bi bi-circle"></i><span>Lesbian</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/mature">
-              <i class="bi bi-circle"></i><span>Mature</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/mediumtits">
-              <i class="bi bi-circle"></i><span>Mediumtits</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/muscule">
-              <i class="bi bi-circle"></i><span>Muscule</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/petite">
-              <i class="bi bi-circle"></i><span>Petite</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/pornstar">
-              <i class="bi bi-circle"></i><span>Pornstar</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/pregnant">
-              <i class="bi bi-circle"></i><span>Pregnant</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/redhead">
-              <i class="bi bi-circle"></i><span>Redhead</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/shaved">
-              <i class="bi bi-circle"></i><span>Shaved</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/smalltits">
-              <i class="bi bi-circle"></i><span>Smalltits</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/smokingcigars">
-              <i class="bi bi-circle"></i><span>Smokingcigars</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/teen">
-              <i class="bi bi-circle"></i><span>Teen</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/toys">
-              <i class="bi bi-circle"></i><span>Toys</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/transgirl">
-              <i class="bi bi-circle"></i><span>Transgirl</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/trimmed">
-              <i class="bi bi-circle"></i><span>Trimmed</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/white">
-              <i class="bi bi-circle"></i><span>White</span>
-            </a>
-          </li>
-          <li>
-            <hr>
-  <div class="d-flex justify-content-center text-uppercase fw-bold">--- Boy ---</div>
-          </li>
-          <li>
-            <a href="/cat/allguys">
-              <i class="bi bi-circle"></i><span>Allguys</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/alternadudes">
-              <i class="bi bi-circle"></i><span>Alternadudes</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/analguy">
-              <i class="bi bi-circle"></i><span>Analguy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/asianguy">
-              <i class="bi bi-circle"></i><span>Asianguy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/athleticguy">
-              <i class="bi bi-circle"></i><span>Athleticguy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/bdsm">
-              <i class="bi bi-circle"></i><span>Bdsm</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/bear">
-              <i class="bi bi-circle"></i><span>Bear</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/bi">
-              <i class="bi bi-circle"></i><span>Bi</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/bigcock">
-              <i class="bi bi-circle"></i><span>Bigcock</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/blackguy">
-              <i class="bi bi-circle"></i><span>Blackguy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/couplesguy">
-              <i class="bi bi-circle"></i><span>Couplesguy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/daddy">
-              <i class="bi bi-circle"></i><span>Daddy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/gay">
-              <i class="bi bi-circle"></i><span>Gay</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/guyfriends">
-              <i class="bi bi-circle"></i><span>Guyfriends</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/guynextdoor">
-              <i class="bi bi-circle"></i><span>Guynextdoor</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/latino">
-              <i class="bi bi-circle"></i><span>Latino</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/matureguy">
-              <i class="bi bi-circle"></i><span>Matureguy</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/muscle">
-              <i class="bi bi-circle"></i><span>Muscle</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/straight">
-              <i class="bi bi-circle"></i><span>Straight</span>
-            </a>
-          </li>
-          <li>
-            <a href="/cat/uncut">
-              <i class="bi bi-circle"></i><span>Uncut</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End All Categories Nav -->
+      @endforeach
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -588,7 +106,7 @@
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Dashboard</li>
           @if (!empty($category_name))
-            <li class="breadcrumb-item">{{$category_name}}</li>
+          <li class="breadcrumb-item">{{$category_name}}</li>
           @endif
 
         </ol>
@@ -607,7 +125,7 @@
               <div class="card info-card sales-card">
 
                 <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <a class['icon']" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
                       <h6>Filter</h6>
@@ -623,7 +141,7 @@
                   <h5 class="card-title">Random Live Cam</h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <div class="car['icon'] rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
@@ -642,19 +160,19 @@
             <!-- Customers Card -->
             <div class="col-12">
 
-                      <div class="container-fluid mod_feed">
-                        
-                        {{ $category_name }}
-                        <div class="row g-1 row-cols-2 row-cols-md-3 row-cols-xl-4 row-cols-xxxl-6  row-cols-xxxxl-8">
+              <div class="container-fluid mod_feed">
 
-                      @include("test", ['models' => $models])
-                      </div>
-                      </div>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                {{ $category_name }}
+                <div class="row g-1 row-cols-2 row-cols-md-3 row-cols-xl-4 row-cols-xxxl-6  row-cols-xxxxl-8">
 
-                  
+                  @include("test", ['models' => $models])
+                </div>
+              </div>
+              <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
 
-             
+
+
+
 
             </div><!-- End Customers Card -->
 
@@ -663,7 +181,7 @@
               <div class="card">
 
                 <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <a class['icon']" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
                       <h6>Filter</h6>
@@ -745,7 +263,7 @@
               <div class="card recent-sales overflow-auto">
 
                 <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <a class['icon']" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
                       <h6>Filter</h6>
@@ -819,7 +337,7 @@
               <div class="card top-selling overflow-auto">
 
                 <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <a class['icon']" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
                       <h6>Filter</h6>
@@ -897,7 +415,7 @@
           <!-- Recent Activity -->
           <div class="card">
             <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <a class['icon']" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
                   <h6>Filter</h6>
@@ -970,7 +488,7 @@
           <!-- Budget Report -->
           <div class="card">
             <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <a class['icon']" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
                   <h6>Filter</h6>
@@ -1044,7 +562,7 @@
           <!-- Website Traffic -->
           <div class="card">
             <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <a class['icon']" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
                   <h6>Filter</h6>
@@ -1122,7 +640,7 @@
           <!-- News & Updates Traffic -->
           <div class="card">
             <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <a class['icon']" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
                   <h6>Filter</h6>

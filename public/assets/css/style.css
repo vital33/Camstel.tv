@@ -1727,3 +1727,10 @@ color: #000;
 .flg-SE {
   background-position:-96px -72px
 }
+
+#sidebar-nav .nav-heading{
+margin: 0;
+padding: 17px 0 5px 15px;
+border-top:1px solid #cfcfcf;
+margin-top: 17px;
+}
